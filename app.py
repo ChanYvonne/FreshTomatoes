@@ -48,7 +48,7 @@ def authenicate():
 
 @app.route("/home/")
 def home():
-    render_template("home.html")
+    return render_template("home.html")
     
 
 if __name__ == "__main__":
