@@ -12,10 +12,13 @@
       <br>
       <br>
       <form action = "/authenticate/" method = "POST">
-	     Username: <input type = "text" name = "user" required> <br> <br>
-	     Password: <input type = "password" name = "password" required> <br> <br>
-	     <input type = "submit" name="account" value= "Login">
-       <input type = "submit" name="account" value= "Register"> 
+	     Username: <input type="text" name="user" required> <br> <br>
+	     Password: <input type="password" name="password" required> <br> <br>
+         {% if regis is equalto true %}
+            Confirm: <input type="password" name="password" required> <br> <br>
+         {% endif %}
+	     <input type="submit" name="account" value= "Login">
+         <input type="submit" name="account" value= "Register"> 
       </form>
   </body>
 
