@@ -9,17 +9,18 @@
   <body>
     <h1>Login/Register Here:</h1>
       {{ message }}
-      <br>
-      <br>
-      <form action = "/authenticate/" method = "POST">
-	     Username: <input type="text" name="user" required> <br> <br>
-	     Password: <input type="password" name="password" required> <br> <br>
-         {% if regis is equalto true %}
-            Confirm: <input type="password" name="password" required> <br> <br>
-         {% endif %}
-	     <input type="submit" name="account" value= "Login">
-         <input type="submit" name="account" value= "Register"> 
-      </form>
+    <form action = "/authenticate/" method = "POST">
+      {% if regis %}
+	  Username: <input type="text" name="user" required> <br> <br>
+	  Password: <input type="password" name="password" required> <br> <br>
+      Confirm: <input type="password" name="password" required> <br> <br>
+      {% else %}
+      Username: <input type="text" name="user" required> <br> <br>
+	  Password: <input type="password" name="password" required> <br> <br>
+      {% endif %}
+	  <input type="submit" name="account" value= "Login">
+      <input type="submit" name="account" value= "Register"> 
+    </form>
   </body>
-
+  
 </html>

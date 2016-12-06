@@ -13,7 +13,7 @@ def root():
 @app.route("/login/")
 def login( **keyword_parameters ):
     message = ""
-    regis = False
+    regis = "False"
     if( 'message' in keyword_parameters):
         message = keyword_parameters['message']
     elif( 'message' in request.args ):
@@ -42,7 +42,7 @@ def authenicate():
             else:
                 return redirect(url_for('login', message = val))
         else:
-            return redirect(url_for('login', regis = True ))
+            return redirect(url_for('login', regis = "True" ))
     else:
         return redirect(url_for( 'root' ) )
 
