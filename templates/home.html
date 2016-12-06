@@ -6,6 +6,13 @@
 
   <body>
     THIS SHOULD BE IN A NAVBAR
+
+    {% if username is defined %}
+    <form action="/logout/">
+      <input type="submit" value="Logout">
+    </form>
+    {% endif %}
+    
     <a href="/account/">View Account</a>
   </body>
 </html>
