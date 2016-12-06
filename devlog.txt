@@ -2,3 +2,7 @@ Devlog for Fresh Tomatoes:
 12/5 - Kevin: implemented login/register system
      - All: added initial files
        	    revised design document with new and more efficient ideas
+12/6 - Kevin: revised the login/register system.
+              Separated Login and Register, creating register.html, which extends login.html
+              Added some CSS
+              Modified the design doc
