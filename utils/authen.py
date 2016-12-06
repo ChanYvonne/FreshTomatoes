@@ -29,6 +29,8 @@ def register( requestForm, userNames, passWords ):
 
     if( requestForm['user'] in userNames ):
         return "Username Already Taken"
+    elif requestForm['confirm'] != requestForm['password']:
+        return "Passwords Do Not Match"
     else:
         #userNames.append( requestForm['user'] )
         #passWords.append( hashWord(requestForm['password']) )
