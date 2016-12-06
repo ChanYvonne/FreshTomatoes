@@ -1,1 +1,4 @@
 Devlog for Fresh Tomatoes:
+12/5 - Kevin: implemented login/register system
+     - All: added initial files
+       	    revised design document with new and more efficient ideas
