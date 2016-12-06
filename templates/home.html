@@ -11,8 +11,12 @@
     <form action="/logout/">
       <input type="submit" value="Logout">
     </form>
+    <a type="button" href="/account/">View Account</a>
+    {% else %}
+    <form action="/login/">
+      <input type="submit" value="login">
+    </form>    
     {% endif %}
     
-    <a href="/account/">View Account</a>
   </body>
 </html>

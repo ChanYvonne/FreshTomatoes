@@ -3,24 +3,38 @@
 
   <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <title> Login </title>
   </head>
 
-  <body>
-    <h1>Login/Register Here:</h1>
-      {{ message }}
-    <form action = "/authenticate/" method = "POST">
-      {% if regis %}
-	  Username: <input type="text" name="user" required> <br> <br>
-	  Password: <input type="password" name="password" required> <br> <br>
-      Confirm: <input type="password" name="password" required> <br> <br>
-      {% else %}
-      Username: <input type="text" name="user" required> <br> <br>
-	  Password: <input type="password" name="password" required> <br> <br>
-      {% endif %}
-	  <input type="submit" name="account" value= "Login">
-      <input type="submit" name="account" value= "Register"> 
-    </form>
+  <body id="loginRegis">
+    <div class="block">
+      <h1>{% block header %}Login{% endblock %}</h1>
+      <h3>{{ message }}</h3>
+      <form action = "/authenticate/" method = "POST" class="form-horizontal">
+        {% block form %}
+        <div class="form-group">
+          <label class ="control-lable col-sm-3" for="user">Username:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="user" name="user" placeholder="Enter Username" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class ="control-lable col-sm-3" for="pwd">Password:</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter Password" required>
+          </div>
+        </div>
+        
+        <div class="btn-group btn-group-lg">
+          <input class="btn btn-default" type="submit" name="account" value= "Login">
+          <a class="btn btn-default" type="button" href="/register/" value= "Register">Register</a>
+        </div>
+        {% endblock %}
+      </form>
+    </div>
   </body>
   
 </html>

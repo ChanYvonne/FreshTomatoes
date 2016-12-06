@@ -13,16 +13,20 @@ def root():
 @app.route("/login/")
 def login( **keyword_parameters ):
     message = ""
-    regis = False
     if( 'message' in keyword_parameters):
         message = keyword_parameters['message']
     elif( 'message' in request.args ):
         message = request.args.get('message')
-    if( 'regis' in keyword_parameters ):
-        regis = keyword_parameters['regis']
-    elif( 'regis' in request.args ):
-        regis = request.args.get('regis')
-    return render_template('login.html', message = message, regis = regis)
+    return render_template('login.html', message = message)
+
+@app.route("/register/")
+def register( **keyword_parameters ):
+    message = ""
+    if( 'message' in keyword_parameters):
+        message = keyword_parameters['message']
+    elif( 'message' in request.args ):
+        message = request.args.get('message')
+    return render_template('register.html', message = message)
 
 @app.route("/authenticate/", methods = ["POST"] )
 def authenicate():
@@ -37,14 +41,11 @@ def authenicate():
         else:
             return redirect(url_for('login', message = val))
     elif request.form['account'] == 'Register':
-        if 'confirm' in request.args :        
-            val = authen.register(request.form, userNames, passWords)
-            if val == True :
-                return redirect(url_for('login', message = "Registration Successful"))
-            else:
-                return redirect(url_for('login', message = val))
+        val = authen.register(request.form, userNames, passWords)
+        if val == True :
+            return redirect(url_for('register', message = "Registration Successful", ))
         else:
-            return redirect(url_for('login', regis = True ))
+            return redirect(url_for('register', message = val))
     else:
         return redirect(url_for( 'root' ) )
 

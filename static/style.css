@@ -1,0 +1,21 @@
+body{
+    background-color: #D0CFEC;
+}
+
+
+#loginRegis{
+    text-align: center;
+    font-size: 2em;
+    background-color: #D0CFEC;
+}
+.block{
+    text-align: center;
+    padding: 40px;
+    border: 5px solid #084C61;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 17%;
+    background-color: #FBF9FF;
+}
+

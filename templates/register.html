@@ -1,0 +1,28 @@
+{% extends "login.html" %}
+{% block header %}Register{% endblock %}
+{% block form %}
+<div class="form-group">
+  <label class ="control-lable col-sm-3" for="user">Username:</label>
+  <div class="col-sm-9">
+    <input type="text" class="form-control" id="user" name="user" placeholder="Enter Username" required>
+  </div>
+</div>
+<div class="form-group">
+  <label class ="control-lable col-sm-3" for="pwd">Password:</label>
+  <div class="col-sm-9">
+    <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter Password" required>
+  </div>
+</div>
+<div class="form-group">
+  <label class ="control-lable col-sm-3" for="conf">Confirm:</label>
+  <div class="col-sm-9">
+    <input type="password" class="form-control" id="conf" name="confirm" placeholder="Retype Password" required>
+  </div>
+</div>
+
+
+<div class="btn-group">
+  <a class="btn btn-default" type="button" href="/login/" value= "Login">Login</a>
+  <input class="btn btn-default" type="submit" href="/register/" value= "Register">
+</div>
+{% endblock %}
