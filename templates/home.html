@@ -5,18 +5,19 @@
   </head>
 
   <body>
-    THIS SHOULD BE IN A NAVBAR
-
-    {% if username is defined %}
-    <form action="/logout/">
-      <input type="submit" value="Logout">
-    </form>
-    <a type="button" href="/account/">View Account</a>
-    {% else %}
-    <form action="/login/">
-      <input type="submit" value="login">
-    </form>    
-    {% endif %}
-    
+    <nav class="nav navbar-default">
+      <div class="container-fluid">
+        {% if username is defined %}
+        <form action="/logout/">
+          <input type="submit" value="Logout">
+        </form>
+        <a type="button" href="/account/">View Account</a>
+        {% else %}
+        <form action="/login/">
+          <input type="submit" value="login">
+        </form>    
+        {% endif %}
+      </div>
+    </nav>
   </body>
 </html>
