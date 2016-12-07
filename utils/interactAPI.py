@@ -20,5 +20,3 @@ def get_details(query):
         movie = [j['original_title'], j['release_date'][0:4]]
         info += [movie]
     return info
-
-print get_details("10 things")

@@ -1,5 +1,5 @@
 from flask import Flask, session, request, url_for, redirect, render_template
-from utils import authen
+from utils import authen, interactAPI
 app = Flask(__name__)
 app.secret_key = "SOME_KEY"
 
@@ -48,6 +48,13 @@ def authenicate():
             return redirect(url_for('register', message = val))
     else:
         return redirect(url_for( 'root' ) )
+
+@app.route("/movie/", methods = ["GET"])
+def search():
+    query = "10 things"
+    query = request.args.get('q')
+    results = interactAPI.get_details(query)
+    return render_template('search_results.html', query = query, results = results)
 
 @app.route("/home/")
 def home(**keyword_parameters):
