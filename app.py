@@ -53,6 +53,8 @@ def authenicate():
 def home(**keyword_parameters):
     if( 'user' in request.args ):
         return render_template('home.html', user = request.args.get('user')) 
+    elif ( 'username' in session ):
+        return render_template('home.html', user = session['username'])
     else:
         return render_template('home.html')
 

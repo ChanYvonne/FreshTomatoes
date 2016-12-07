@@ -6,3 +6,5 @@ Devlog for Fresh Tomatoes:
               Separated Login and Register, creating register.html, which extends login.html
               Added some CSS
               Modified the design doc
+12-7 - Kevin: Added navbar to home.html
+              
