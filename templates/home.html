@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <title>Home</title>
+    
   </head>
 
   <body>
-    <nav class="nav navbar-default">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
-        {% if user %}
-        <form action="/logout/">
-          <input type="submit" value="Logout">
-        </form>
-        <a type="button" href="/account/">View Account</a>
-        {% else %}
-        <form action="/login/">
-          <input type="submit" value="login">
-        </form>    
-        {% endif %}
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/home/">Fresh Tomatoes</a>
+        </div>
+        <ul class="navbar-nav navbar-right nav">
+          {% if user %}
+          <li><a type="button"  href="/logout/">Logout</a></li>
+          <li><a type="button"  href="/account/">View Account</a></li>
+          {% else %}
+          <li><a type="button" href="/login/">Login</a></li>
+          {% endif %}
+        </ul>
       </div>
     </nav>
   </body>
