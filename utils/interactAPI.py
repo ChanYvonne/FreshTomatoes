@@ -11,12 +11,21 @@ def get_ids(query):
         ids += [res['id']]
     return ids
 
-def get_details(query):
+def get_search_details(query):
     ids = get_ids(query)
     info = []
     for id in ids:
         url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
         j = json.loads(urllib2.urlopen(url).read())
-        movie = [j['original_title'], j['release_date'][0:4]]
+        movie = [j['title'], j['release_date'][0:4], id]
         info += [movie]
     return info
+
+def get_movie_details(id):
+    url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
+    j = json.loads(urllib2.urlopen(url).read())
+    genres = []
+    for genre in j['genres']:
+        genres += [genre['name']]
+    return [j['title'], j['release_date'][:4], j['overview'], j['tagline'], [genres]]
+

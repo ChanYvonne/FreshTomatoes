@@ -49,12 +49,18 @@ def authenicate():
     else:
         return redirect(url_for( 'root' ) )
 
-@app.route("/movie/", methods = ["GET"])
+@app.route("/search/", methods = ["GET"])
 def search():
-    query = "10 things"
     query = request.args.get('q')
-    results = interactAPI.get_details(query)
-    return render_template('search_results.html', query = query, results = results)
+    results = interactAPI.get_search_details(query)
+    return render_template('search_results.html', query = query, results = results, id = id)
+
+
+@app.route("/movie/<movieid>")
+def movie(movieid):
+    #id = request.args.get('id')
+    results = interactAPI.get_movie_details(int(movieid))
+    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], genres = results[4])
 
 @app.route("/home/")
 def home(**keyword_parameters):
@@ -74,7 +80,6 @@ def account():
 def logout():
     session.pop('username')
     return redirect(url_for( 'root' ) )
-
 
 if __name__ == "__main__":
     app.debug = True

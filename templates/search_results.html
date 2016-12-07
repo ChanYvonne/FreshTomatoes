@@ -8,7 +8,7 @@
     <table>
       {% for res in results %}
       <tr>
-	<td>{{res[0]}}</td>
+	<td><a href={{ url_for('movie', movieid = res[2]) }}>{{res[0]}}</a></td>
 	<td>{{res[1]}}</td>
       </tr>
       {% endfor %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+
+  <body>
+    {{ title }}<br>
+    {{ year }}<br>
+    {{ blurb }}<br>
+    "{{ quote }}"<br>
+    Genres:
+    <ul>
+      {% for genre in genres %}
+      <li>{{ genre[0] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
