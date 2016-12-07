@@ -51,8 +51,8 @@ def authenicate():
 
 @app.route("/home/")
 def home(**keyword_parameters):
-    if( 'username' in keyword_parameters ):
-        return render_template('home.html')
+    if( 'user' in request.args ):
+        return render_template('home.html', user = request.args.get('user')) 
     else:
         return render_template('home.html')
 

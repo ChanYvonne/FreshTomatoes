@@ -7,7 +7,7 @@
   <body>
     <nav class="nav navbar-default">
       <div class="container-fluid">
-        {% if username is defined %}
+        {% if user %}
         <form action="/logout/">
           <input type="submit" value="Logout">
         </form>
