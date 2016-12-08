@@ -5,15 +5,10 @@
   </head>
 
   <body>
+    <img style="height:300px" src="http://image.tmdb.org/t/p/w500{{image_url}}" /><br>
     {{ title }}<br>
     {{ year }}<br>
     {{ blurb }}<br>
     "{{ quote }}"<br>
-    Genres:
-    <ul>
-      {% for genre in genres %}
-      <li>{{ genre[0] }}</li>
-      {% endfor %}
-    </ul>
   </body>
 </html>

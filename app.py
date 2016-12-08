@@ -60,7 +60,7 @@ def search():
 def movie(movieid):
     #id = request.args.get('id')
     results = interactAPI.get_movie_details(int(movieid))
-    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], genres = results[4])
+    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4])
 
 @app.route("/home/")
 def home(**keyword_parameters):
