@@ -1,10 +1,22 @@
 Devlog for Fresh Tomatoes:
-12/5 - Kevin: implemented login/register system
-     - All: added initial files
+12/5   - All: added initial files
        	    revised design document with new and more efficient ideas
-12/6 - Kevin: revised the login/register system.
-              Separated Login and Register, creating register.html, which extends login.html
-              Added some CSS
-              Modified the design doc
-12-7 - Kevin: Added navbar to home.html
-              
+kevinZ -- 2016-12-5 12:32
+       Copied old authen code and modified it to work with new system.
+       Login/register both don't work currently, but I am hoping to get more of it done by tomorrow.
+       Also copied over bootstrap and jquery.min.js, which I will be using to make the front end design.
+kevinZ -- 2016-12-6 1:13
+       revised the login/register system.
+       separated Login and Register, creating register.html, which extends login.html
+kevinZ -- 2016-12-6 3:23
+       Added some styling to login and register pages.
+kevinZ -- 2016-12-6 6:34
+       Revised DESIGN.pdf, changing the flow chart to new specifications. Added some other things as well
+kevinZ -- 2016-12-7 12:13
+       Resolved issues with register / login that Yvonne presented to me
+       Added a basic bootstrap navbar to home.html
+kevinZ -- 2016-12-7 8:36
+       Added some styling to home.html
+       Having an empty search query is currently an issue, although it should be a quick fix.
+       Added automatic redirection from register to login if the registration is sucessful.
+

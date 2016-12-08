@@ -11,27 +11,33 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverted" id="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/home/">Fresh Tomatoes</a>
+          <a class="navbar-brand nav-detail" href="/home/">Fresh Tomatoes</a>
         </div>
         <ul class="navbar-nav navbar-right nav">
           {% if user %}
-          <li><a type="button" href="/logout/">Logout</a></li>
-          <li><a type="button" href="/account/">View Account</a></li>
+          <li><a class="nav-detail" type="button" href="/logout/">Logout</a></li>
+          <li><a class="nav-detail" type="button" href="/account/">View Account</a></li>
           {% else %}
-          <li><a type="button" href="/login/">Login</a></li>
+          <li><a class="nav-detail" type="button" href="/login/">Login</a></li>
           {% endif %}
-          <li><a type="button" href="/movie/">Random Movie</a></li>
+          <li><a class="nav-detail" type="button" href="/movie/">Random Movie</a></li>
         </ul>
       </div>
     </nav>
-
-    <form action = "/search/" method = "GET">
-      <input type="text" id="q" name="q" placeholder="Search for a movie">
-      <input type="submit" value="Search">
-    </form>
-    
+    <div class="jumbotron" id="homePage">
+      <form action="/search/" method="GET" class="form-horizontal">
+        <div class="input-group">
+          <input class="form-control" type="text" id="q" name="q" placeholder="Search for a movie">          
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">              
+              <span class="glyphicon glyphicon-search"></span>              
+            </button>
+          </span>            
+        </div>
+      </form>
+    </div>
   </body>
 </html>

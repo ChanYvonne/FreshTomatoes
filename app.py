@@ -43,7 +43,7 @@ def authenicate():
     elif request.form['account'] == 'Register':
         val = authen.register(request.form, userNames, passWords)
         if val == True :
-            return redirect(url_for('register', message = "Registration Successful", ))
+            return redirect(url_for('login', message = "Registration Successful", ))
         else:
             return redirect(url_for('register', message = val))
     else:
