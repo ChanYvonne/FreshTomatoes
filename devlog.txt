@@ -1,6 +1,8 @@
 Devlog for Fresh Tomatoes:
-12/5   - All: added initial files
-       	    revised design document with new and more efficient ideas
+
+All -- 2016-12-5 12:30
+       added initial files
+       revised design document with new and more efficient ideas
 kevinZ -- 2016-12-5 12:32
        Copied old authen code and modified it to work with new system.
        Login/register both don't work currently, but I am hoping to get more of it done by tomorrow.
