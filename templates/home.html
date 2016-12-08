@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
     <script src="../static/jquery.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-    <title>Home</title>
+    <title>{% block title %}Home{% endblock %}</title>
     
   </head>
 
@@ -27,6 +27,7 @@
         </ul>
       </div>
     </nav>
+    {% block pageContent %}
     <div class="jumbotron" id="homePage">
       <form action="/search/" method="GET" class="form-horizontal">
         <div class="input-group">
@@ -39,5 +40,6 @@
         </div>
       </form>
     </div>
+    {% endblock %}
   </body>
 </html>

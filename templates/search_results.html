@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Search: {{query}}</title>
-  </head>
-  
-  <body>
+{% extends 'home.html' %}
+{% block title %} Search: {{query}} {% endblock %}
+{% block contentPage %}
     <table>
       {% for res in results %}
       <tr>
@@ -13,5 +9,4 @@
       </tr>
       {% endfor %}
     </table>
-  </body>
-</html>
+{% endblock %}
