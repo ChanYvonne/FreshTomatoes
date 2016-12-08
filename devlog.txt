@@ -17,10 +17,20 @@ kevinZ -- 2016-12-6 6:34
 kevinZ -- 2016-12-7 12:13
        Resolved issues with register / login that Yvonne presented to me
        Added a basic bootstrap navbar to home.html
+nalaS -- 2016-12-7 5:20
+      Wrote basic interactAPI.py functions to request TMDB API for movie data
+nalaS -- 2016-12-7 5:45
+      Updated app.py, interactAPI.py, home.html to implement basic search functionality (can search for keywords in a movie title; results appear tabulated)
+      Created search_results.html to display results
+nalaS -- 2016-12-7 6:29
+      Updated app.py, interactAPI.py home.html, search_results.html to display results from a movie search
+      Created movie.html to display page for single movie
 kevinZ -- 2016-12-7 8:36
        Added some styling to home.html
        Having an empty search query is currently an issue, although it should be a quick fix.
        Added automatic redirection from register to login if the registration is sucessful.
+nalaS -- 2016-12-7 8:56
+      Updated app.py, interactAPI.py, movie.html, search_results.html to display movie posters along with other relevant info previously included (e.g. title, year)
 kevinZ -- 2016-12-7 10:19
        Styled up search_results.html
        Some images are missing, so we might have to figure out a workaround. Or we can leave it as is.
