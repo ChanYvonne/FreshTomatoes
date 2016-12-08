@@ -4,7 +4,6 @@ import json
 tmdb_key="0c28ca3c9002dc1725a0f55971a73b4b"
 nyt_key="923bd15ebe684cb685e2e8f326a47ac3"
 
-
 def get_ids(query): #gets required id that allows us to access database for info on specific movie
     url="http://api.themoviedb.org/3/search/movie?api_key=%s&query=%s&page=1"%(tmdb_key, query.replace(" ", "%20"))
     j = json.loads(urllib2.urlopen(url).read())
@@ -31,6 +30,6 @@ def get_movie_details(id): #takes id and retrieves info on the specific movie
     return [j['title'], j['release_date'][:4], j['overview'], j['tagline'], j['poster_path']]
 
 
-def get_reviews(query): #to be implemented with nyt API; retrieves the review for the specific movie if available
+#def get_reviews(query): #to be implemented with nyt API; retrieves the review for the specific movie if available
 
 
