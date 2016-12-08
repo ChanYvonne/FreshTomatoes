@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search: {{query}}</title>
+  </head>
+  
+  <body>
+    <table>
+      {% for res in results %}
+      <tr>
+	<td><a href={{ url_for('movie', movieid = res[2]) }}>{{res[0]}}</a></td>
+	<td>{{res[1]}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
