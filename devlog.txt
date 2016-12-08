@@ -39,4 +39,7 @@ kevinZ -- 2016-12-8 12:52
        Added option to switch between searching for actors or movies.
        Currently the display is a bit buggy ( css not working out ) but I will make modifications later in the day
        Also modified search_results.html to split into 6 columns, instead of 3
+kevinZ -- 2016-12-8 5:23
+       Added some styling to movie.html
+       Fixed the css for the search bar. Nala can now do her magic ( I added a section in the code for her )
        

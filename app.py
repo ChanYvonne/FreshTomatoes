@@ -51,14 +51,18 @@ def authenicate():
 
 @app.route("/search/", methods = ["GET"])
 def search():
-    query = request.args.get('q')
-    results = interactAPI.get_search_details(query)
-    if( 'username' in session ):
-        return render_template('search_results.html', query = query, results = results, id = id, user = session['username'] )
+    if( 'm' in request.args ):
+        query = request.args.get('m')
+        results = interactAPI.get_search_details(query)
+        if( 'username' in session ):
+            return render_template('search_results.html', query = query, results = results, id = id, user = session['username'] )
+        else:
+            return render_template('search_results.html', query = query, results = results, id = id)
+    elif( 'a' in request.args ):
+        return " hello "
+        # NALA FILL IN THIS!!!!
     else:
-        return render_template('search_results.html', query = query, results = results, id = id)
-    
-
+        return " someone done goofed "
 
 @app.route("/movie/<movieid>")
 def movie(movieid):

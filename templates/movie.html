@@ -1,9 +1,10 @@
 {% extends "home.html" %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-<img style="height:300px" src="http://image.tmdb.org/t/p/w500{{image_url}}" /><br>
-{{ title }}<br>
-{{ year }}<br>
-{{ blurb }}<br>
-"{{ quote }}"<br>
+<div class="jumbotron" id="infoBox">
+  <img class="img-thumbnail" src="http://image.tmdb.org/t/p/w500{{image_url}}" /><br>
+  <h3>{{ title }} ( {{ year }} ) </h3>
+  <p style="text-align: justify;"> Summary : <em>{{ blurb }}</em></p>
+  <p style="text-algin: left;"> Quote : <em>"{{ quote }}"</em></p>
+</div>
 {% endblock %}

@@ -32,15 +32,17 @@
       <form action="/search/" method="GET" class="form-horizontal">
         <div class="input-group">
           {% block search %}
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Search By:
-              <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="/home/" class="active">Movies</a></li>
-              <li><a href="/actorSearch/">Actors</a></li>
-            </ul>
-          </div>              
-          <input class="form-control" type="text" id="m" name="m" placeholder="Search for a movie">
+          <span class="input-group-btn">
+            <div class="dropdown input-group">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Search By:
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="/home/" class="active">Movies</a></li>
+                <li><a href="/actorSearch/">Actors</a></li>
+              </ul>
+            </div>
+          </span>
+          <input class="form-control" type="text" id="m" name="m" placeholder="Search for a Movie">
           {% endblock %}
           <span class="input-group-btn">
             <button class="btn btn-default" type="submit">              

@@ -13,6 +13,16 @@ body{
     font-size: 2em;
     background-color: #D0CFEC;
 }
+
+#infoBox{
+    background-color: #D0CFEC;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+
+
 .block{
     text-align: center;
     padding: 40px;
