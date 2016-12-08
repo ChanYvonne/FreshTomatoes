@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ title }}</title>
-  </head>
-
-  <body>
-    <img style="height:300px" src="http://image.tmdb.org/t/p/w500{{image_url}}" /><br>
-    {{ title }}<br>
-    {{ year }}<br>
-    {{ blurb }}<br>
-    "{{ quote }}"<br>
-  </body>
-</html>
+{% extends "home.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<img style="height:300px" src="http://image.tmdb.org/t/p/w500{{image_url}}" /><br>
+{{ title }}<br>
+{{ year }}<br>
+{{ blurb }}<br>
+"{{ quote }}"<br>
+{% endblock %}
