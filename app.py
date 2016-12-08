@@ -53,14 +53,22 @@ def authenicate():
 def search():
     query = request.args.get('q')
     results = interactAPI.get_search_details(query)
-    return render_template('search_results.html', query = query, results = results, id = id)
+    if( 'username' in session ):
+        return render_template('search_results.html', query = query, results = results, id = id, user = session['username'] )
+    else:
+        return render_template('search_results.html', query = query, results = results, id = id)
+    
 
 
 @app.route("/movie/<movieid>")
 def movie(movieid):
     #id = request.args.get('id')
     results = interactAPI.get_movie_details(int(movieid))
-    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4])
+    if( 'username' in session ):
+        return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], user = session['username'])
+    else:
+        return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4])
+    
 
 @app.route("/home/")
 def home(**keyword_parameters):
@@ -71,6 +79,14 @@ def home(**keyword_parameters):
     else:
         return render_template('home.html')
 
+@app.route("/actorSearch/")
+def act():
+    if( 'username' in session ):
+        return render_template('actorSearch.html', user = session['username']);
+    else:
+        return render_template('actorSearch.html');
+    
+    
 
 @app.route("/account/")
 def account():

@@ -31,7 +31,17 @@
     <div class="jumbotron" id="homePage">
       <form action="/search/" method="GET" class="form-horizontal">
         <div class="input-group">
-          <input class="form-control" type="text" id="q" name="q" placeholder="Search for a movie">          
+          {% block search %}
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Search By:
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="/home/" class="active">Movies</a></li>
+              <li><a href="/actorSearch/">Actors</a></li>
+            </ul>
+          </div>              
+          <input class="form-control" type="text" id="m" name="m" placeholder="Search for a movie">
+          {% endblock %}
           <span class="input-group-btn">
             <button class="btn btn-default" type="submit">              
               <span class="glyphicon glyphicon-search"></span>              

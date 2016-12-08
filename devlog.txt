@@ -35,4 +35,8 @@ kevinZ -- 2016-12-7 10:19
        Styled up search_results.html
        Some images are missing, so we might have to figure out a workaround. Or we can leave it as is.
        Some images are also bigger than the rest, which is bothering me to no end. I can't even style it to change it, because bootstrap's css takes priority for some reason
+kevinZ -- 2016-12-8 12:52
+       Added option to switch between searching for actors or movies.
+       Currently the display is a bit buggy ( css not working out ) but I will make modifications later in the day
+       Also modified search_results.html to split into 6 columns, instead of 3
        

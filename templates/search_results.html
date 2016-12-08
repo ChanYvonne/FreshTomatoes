@@ -2,14 +2,14 @@
 {% block title %} Search: {{query}} {% endblock %}
 {% block content %}
     <table class="container-fluid bkg">
-      {% for row in results|batch(3) %}
-      <tr class="container-fluid">
+      {% for row in results|batch(6) %}
+      <tr class="container-fluid" style="max-height:100px;">
         {% for column in row %}
 	    <td class="td-elem">
           <ul>
             <a href={{ url_for('movie', movieid = column[2]) }}>
             <li><img class="img-thumbnail img-icon" src="http://image.tmdb.org/t/p/w500{{ column[3] }}"/></li>
-	        <li>{{column[0]}} ({{column[1]}}) </li>
+	        <li><h3>{{column[0]}} ({{column[1]}})<h3> </li>
             </a>
           </ul>
         </td>

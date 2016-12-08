@@ -51,14 +51,13 @@ body{
 }
 
 .td-elem{
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     max-height: 400px;
 }
 
 .img-icon{
-    height: 400px;
-    width: auto;
+    max-height: 300px;
 }
 ul{
     list-style-type: none;
