@@ -1,12 +1,19 @@
 {% extends 'home.html' %}
 {% block title %} Search: {{query}} {% endblock %}
 {% block content %}
-    <table>
-      {% for res in results %}
-      <tr>
-	<td><img src="http://image.tmdb.org/t/p/w500{{ res[3] }}" /></td>
-	<td><a href={{ url_for('movie', movieid = res[2]) }}>{{res[0]}}</a></td>
-	<td>{{res[1]}}</td>
+    <table class="container-fluid bkg">
+      {% for row in results|batch(3) %}
+      <tr class="container-fluid">
+        {% for column in row %}
+	    <td class="td-elem">
+          <ul>
+            <a href={{ url_for('movie', movieid = column[2]) }}>
+            <li><img class="img-thumbnail img-icon" src="http://image.tmdb.org/t/p/w500{{ column[3] }}"/></li>
+	        <li>{{column[0]}} ({{column[1]}}) </li>
+            </a>
+          </ul>
+        </td>
+        {% endfor %}
       </tr>
       {% endfor %}
     </table>

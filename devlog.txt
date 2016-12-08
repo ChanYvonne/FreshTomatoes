@@ -19,4 +19,8 @@ kevinZ -- 2016-12-7 8:36
        Added some styling to home.html
        Having an empty search query is currently an issue, although it should be a quick fix.
        Added automatic redirection from register to login if the registration is sucessful.
-
+kevinZ -- 2016-12-7 10:19
+       Styled up search_results.html
+       Some images are missing, so we might have to figure out a workaround. Or we can leave it as is.
+       Some images are also bigger than the rest, which is bothering me to no end. I can't even style it to change it, because bootstrap's css takes priority for some reason
+       
