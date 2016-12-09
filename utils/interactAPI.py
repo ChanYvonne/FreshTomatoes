@@ -18,10 +18,7 @@ def get_ids(query, type): #takes search input and gets corresponding ids that ma
         return ids
     else:
         return ids[:20]
-<<<<<<< HEAD
 
-=======
->>>>>>> bc419073aa164c3bfbfe1f998b6a9692958d3fe3
 
 def get_search_details_m(ids): #takes movie search ids and returns the corresponding movies
     info = []
@@ -40,6 +37,8 @@ def get_search_details_a(ids): #takes actor ids and returns the movies he/she is
         movie_ids = []
         for res in j['cast']:
             movie_ids += [res['id']]
+        if len(movie_ids) > 3:
+            movie_ids = movie_ids[:3]
     return get_search_details_m(movie_ids)
 
 
