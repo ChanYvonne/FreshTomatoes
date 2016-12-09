@@ -13,8 +13,10 @@ def get_ids(query, type): #takes search input and gets corresponding ids that ma
     ids = []
     for res in j['results']:
         ids += [res['id']]
-    return ids
-
+    if len(ids) < 20:
+        return ids
+    else:
+        return ids[:20]
 
 def get_search_details_m(ids): #takes movie search ids and returns the corresponding movies
     info = []
