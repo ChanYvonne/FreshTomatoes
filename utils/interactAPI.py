@@ -16,7 +16,7 @@ def get_ids(query, type): #gets required id that allows us to access database fo
     return ids
 
 
-def get_search_details_m(ids): #takes search input and returns the movies that are related to the search
+def get_search_details_m(ids): #takes movie search input and returns the movies that are related to the search
     info = []
     for id in ids:
         url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
@@ -26,7 +26,7 @@ def get_search_details_m(ids): #takes search input and returns the movies that a
     return info
 
 
-def get_search_details_a(ids):
+def get_search_details_a(ids): #takes name of actor as search input and returns the movies he/she is in or affiliated with
     for id in ids:
         url="https://api.themoviedb.org/3/person/%d/movie_credits?api_key=%s&language=en-US"%(id, tmdb_key)
         j = json.loads(urllib2.urlopen(url).read())
