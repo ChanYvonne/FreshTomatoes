@@ -1,8 +1,9 @@
 import urllib2
 import json
 
-tmdb_key="0c28ca3c9002dc1725a0f55971a73b4b"
-nyt_key="923bd15ebe684cb685e2e8f326a47ac3"
+tmdb=open("tmdb.txt", "r")
+tmdb_key = tmdb.read()[:-1]
+tmdb.close()
 
 def get_ids(query, type): #takes search input and gets corresponding ids that match with the movie/actor
     if(type == 'm'):
@@ -13,7 +14,10 @@ def get_ids(query, type): #takes search input and gets corresponding ids that ma
     ids = []
     for res in j['results']:
         ids += [res['id']]
-    return ids
+    if len(ids) < 20:
+        return ids
+    else:
+        return ids[:20]
 
 
 def get_search_details_m(ids): #takes movie search ids and returns the corresponding movies
