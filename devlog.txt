@@ -42,4 +42,5 @@ kevinZ -- 2016-12-8 12:52
 kevinZ -- 2016-12-8 5:23
        Added some styling to movie.html
        Fixed the css for the search bar. Nala can now do her magic ( I added a section in the code for her )
-       
+nalaS -- 2016-12-8 8:06
+      Worked on actor search for a couple of hours, and it literally should be working, but it isn't...
