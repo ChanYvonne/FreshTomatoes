@@ -18,7 +18,10 @@ def get_ids(query, type): #takes search input and gets corresponding ids that ma
         return ids
     else:
         return ids[:20]
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc419073aa164c3bfbfe1f998b6a9692958d3fe3
 
 def get_search_details_m(ids): #takes movie search ids and returns the corresponding movies
     info = []
