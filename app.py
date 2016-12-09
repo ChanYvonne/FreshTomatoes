@@ -53,14 +53,19 @@ def authenicate():
 def search():
     if( 'm' in request.args ):
         query = request.args.get('m')
-        results = interactAPI.get_search_details(query)
+        results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
         if( 'username' in session ):
             return render_template('search_results.html', query = query, results = results, id = id, user = session['username'] )
         else:
             return render_template('search_results.html', query = query, results = results, id = id)
     elif( 'a' in request.args ):
-        return " hello "
-        # NALA FILL IN THIS!!!!
+        query = request.args.get('a')
+        results = interactAPI.get_search_details_a(interactAPI.get_ids(query, 'a'))
+        if( 'username' in session ):
+            return render_template('search_results.html', query = query, results = results, id = id, user = session['username'] )
+        else:
+            return render_template('search_results.html', query = query, results = results, id = id)
+        
     else:
         return " someone done goofed "
 
