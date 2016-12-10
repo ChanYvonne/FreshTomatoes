@@ -56,6 +56,3 @@ def getLink(id): #Fetches NYT review data
     url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=%s&api-key=%s" %(query, nyt_key)
     j = json.loads(urllib2.urlopen(url).read())['results'][0]['link']
     return [j['url'], j['suggested_link_text']]
-
-
-get_movie_details(269149)

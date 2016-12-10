@@ -10,7 +10,7 @@ def authenticate( requestForm, userNames, passWords ):
             return "Username Cannot Contain Any Whitespace"
         if( requestForm['password'].find(i) != -1 ):
             return "Password Cannot Contain Any Whitespace"
-        
+
     if( requestForm['user'] in userNames ):
         index = userNames.index(requestForm['user'])
         if passWords[index] == hashWord( requestForm['password'] ):
@@ -32,14 +32,12 @@ def register( requestForm, userNames, passWords ):
     elif requestForm['confirm'] != requestForm['password']:
         return "Passwords Do Not Match"
     else:
-        #userNames.append( requestForm['user'] )
-        #passWords.append( hashWord(requestForm['password']) )
         addToDB( requestForm['user'], hashWord(requestForm['password']))
         return True
 
 def hashWord( strIn ):
     return hashlib.sha256(strIn).hexdigest()
-    
+
 def dbHandler( ):
     db = sqlite3.connect("./data/database.db")
     cursor = db.cursor()
@@ -59,6 +57,7 @@ def addToDB( userName, passWord ):
     cursor = db.cursor()
     cmd = "INSERT INTO users VALUES ( '%s', '%s' )"%(userName, passWord)
     cursor.execute(cmd)
+    cmd = "CREATE TABLE '%s'(movieID TEXT)" %(userName)
+    cursor.execute(cmd)
     db.commit()
     db.close()
-
