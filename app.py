@@ -54,18 +54,11 @@ def search():
     if('m' in request.args):
         query = request.args.get('m')
         results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
-        if('username' in session):
-            return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
-        else:
-            return render_template('search_results.html', query = query, results = results, id = id)
+        return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
     elif('a' in request.args):
         query = request.args.get('a')
         results = interactAPI.get_search_details_a(interactAPI.get_ids(query, 'a'))
-        if('username' in session):
-            return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
-        else:
-            return render_template('search_results.html', query = query, results = results, id = id)
-
+        return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
     else:
         return " someone done goofed "
 
@@ -96,7 +89,11 @@ def act():
 
 @app.route("/list/")
 def list():
-    return
+    result = []
+    for r in getMovies (session ['username']):
+        result += r
+        print result
+    return render_template('list.html', result = result, user = session['username'])
 
 @app.route("/account/")
 def account():

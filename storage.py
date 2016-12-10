@@ -17,4 +17,6 @@ def addMovie(id, user):
         c.execute("INSERT INTO " + user + " VALUES (" + str(id) + ")")
         database.commit()
 
-addMovie (3, 'knob')
+def getMovies(user):
+    c.execute('SELECT * FROM ' + user)
+    return c.fetchall()
