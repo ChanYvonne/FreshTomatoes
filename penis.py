@@ -58,4 +58,4 @@ def getLink(id): #Fetches NYT review data
     return [j['url'], j['suggested_link_text']]
 
 
-get_movie_details(269149)
+print getLink(269149)

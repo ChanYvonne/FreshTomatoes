@@ -65,7 +65,7 @@ def search():
             return render_template('search_results.html', query = query, results = results, id = id, user = session['username'] )
         else:
             return render_template('search_results.html', query = query, results = results, id = id)
-        
+
     else:
         return " someone done goofed "
 
@@ -73,16 +73,17 @@ def search():
 def movie(movieid):
     #id = request.args.get('id')
     results = interactAPI.get_movie_details(int(movieid))
+    link = interactAPI.getLink(int(movieid))
     if( 'username' in session ):
-        return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], user = session['username'])
+        return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link [1], reviewuser = session['username'])
     else:
-        return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4])
-    
+        return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link [1], )
+
 
 @app.route("/home/")
 def home(**keyword_parameters):
     if( 'user' in request.args ):
-        return render_template('home.html', user = request.args.get('user')) 
+        return render_template('home.html', user = request.args.get('user'))
     elif ( 'username' in session ):
         return render_template('home.html', user = session['username'])
     else:
@@ -94,8 +95,6 @@ def act():
         return render_template('actorSearch.html', user = session['username']);
     else:
         return render_template('actorSearch.html');
-    
-    
 
 @app.route("/account/")
 def account():
@@ -109,4 +108,3 @@ def logout():
 if __name__ == "__main__":
     app.debug = True
     app.run()
-
