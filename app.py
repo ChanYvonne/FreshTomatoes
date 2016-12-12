@@ -66,10 +66,9 @@ def search():
 def movie(movieid):
     if (not loggedIn()):
         return redirect(url_for('login'))
-
     results = interactAPI.get_movie_details(int(movieid))
     link = interactAPI.getLink(int(movieid))
-    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link [1], reviewuser = session['username'])
+    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link[1], user = session['username'], movieid = movieid)
 
 
 @app.route("/home/")
@@ -103,6 +102,10 @@ def account():
 def logout():
     session.pop('username')
     return redirect(url_for('root'))
+
+@app.route("/addMovie/<movieid>")
+def addMovie( movieid ):
+    #what is going on
 
 def loggedIn():
     return ('username' in session)
