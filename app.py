@@ -5,7 +5,7 @@ app.secret_key = "SOME_KEY"
 
 @app.route("/")
 def root():
-    if loggedIn:
+    if loggedIn():
         return redirect(url_for('home', user = session['username']))
     else:
         return redirect(url_for('login'))
@@ -74,7 +74,7 @@ def movie(movieid):
 
 @app.route("/home/")
 def home(**keyword_parameters):
-    if (not loggedIn()):
+    if (not loggedIn() ):
         return redirect(url_for('login'))
     elif('user' in request.args):
         return render_template('home.html', user = request.args.get('user'))
