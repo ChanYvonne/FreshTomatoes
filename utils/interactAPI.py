@@ -1,8 +1,13 @@
 import urllib2
 import json
 
-tmdb_key="0c28ca3c9002dc1725a0f55971a73b4b"
-nyt_key="923bd15ebe684cb685e2e8f326a47ac3"
+tmdb=open("tmdb.txt", "r")
+tmdb_key = tmdb.read()[:-1]
+tmdb.close()
+
+nyt = open("nyt.txt", "r")
+nyt_key = nyt.read()
+nyt.close()
 
 def get_ids(query, type): #takes search input and gets corresponding ids that match with the movie/actor
     if(type == 'm'):
@@ -13,7 +18,10 @@ def get_ids(query, type): #takes search input and gets corresponding ids that ma
     ids = []
     for res in j['results']:
         ids += [res['id']]
-    return ids
+    if len(ids) < 20:
+        return ids
+    else:
+        return ids[:20]
 
 
 def get_search_details_m(ids): #takes movie search ids and returns the corresponding movies
@@ -33,6 +41,8 @@ def get_search_details_a(ids): #takes actor ids and returns the movies he/she is
         movie_ids = []
         for res in j['cast']:
             movie_ids += [res['id']]
+        if len(movie_ids) > 3:
+            movie_ids = movie_ids[:3]
     return get_search_details_m(movie_ids)
 
 
@@ -41,5 +51,8 @@ def get_movie_details(id): #takes id and retrieves info on the specific movie
     j = json.loads(urllib2.urlopen(url).read())
     return [j['title'], j['release_date'][:4], j['overview'], j['tagline'], j['poster_path']]
 
-
-#def get_reviews(query): #to be implemented with nyt API; retrieves the review for the specific movie if available
+def getLink(id): #Fetches NYT review data
+    query = str(get_movie_details(id)[0]).replace(" ", "%20")
+    url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=%s&api-key=%s" %(query, nyt_key)
+    j = json.loads(urllib2.urlopen(url).read())['results'][0]['link']
+    return [j['url'], j['suggested_link_text']]
