@@ -106,6 +106,7 @@ def logout():
 @app.route("/addMovie/<movieid>")
 def addMovie( movieid ):
     #what is going on
+    return 0;
 
 def loggedIn():
     return ('username' in session)
