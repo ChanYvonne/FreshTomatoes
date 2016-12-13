@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> Profile </title>
-  </head>
-
-  <body>
-    INSERT NAVBAR
+{% extends 'home.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="container-fluid bkg">
+  <center>
     <h1> Welcome to your Profile! </h1>
-    Your favorite genre is {{ genre }} <br>
-    Your favorite movie of all time (or one of them) is {{ fav }} <br>
-  </body>
-  
-</html>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul style="list-style: none">
+          <li>Your favorite genre is {{ genre }} </li>
+          <li>Your favorite movie of all time (or one of them) is {{ fav }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Filled in with something else later
+      </div>
+    </div>
+  </center>
+</div>
+{% endblock %}

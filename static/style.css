@@ -77,3 +77,13 @@ ul{
 .bkg{
     background-color: #D0CFEC;
 }
+
+.container-fluid.bkg{
+    background-color: #D0CFEC;
+}
+
+.panel{
+    margin-left: 10%;
+    margin-min: 30px;
+    margin-right: 10%;
+}

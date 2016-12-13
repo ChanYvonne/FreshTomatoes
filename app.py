@@ -96,7 +96,9 @@ def list():
 
 @app.route("/account/")
 def account():
-    return render_template("account.html")
+    if( not loggedIn() ):
+        return redirect( url_for('login') )
+    return render_template('account.html', user = session['username'])
 
 @app.route("/logout/")
 def logout():
@@ -105,8 +107,10 @@ def logout():
 
 @app.route("/addMovie/<movieid>")
 def addMovie( movieid ):
-    #what is going on
-    return 0;
+    if ( not loggedIn() ):
+        return redirect( url_for( 'login' ))
+    addMovie( movieid, session['username'] )
+    return redirect( url_for( 'home' ) )
 
 def loggedIn():
     return ('username' in session)
