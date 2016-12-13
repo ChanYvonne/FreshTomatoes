@@ -44,5 +44,8 @@ kevinZ -- 2016-12-8 5:23
        Fixed the css for the search bar. Nala can now do her magic ( I added a section in the code for her )
 nalaS -- 2016-12-8 8:06
       Worked on actor search for a couple of hours, and it literally should be working, but it isn't...
-jonathanB --2016-12-10 1:11
+jonathanB -- 2016-12-10 1:11
       Got the NYT api to work, added a link to the review on movie page
+kevinZ -- 2016-12-12 10:46
+       Added some styling to account.html.
+       Added background-color to .container-fluid class, so the color should fill up the page now. Can't confirm b/c my computer has it filled in anyways.
