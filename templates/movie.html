@@ -2,8 +2,8 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <div class="jumbotron" id="infoBox">
-  <form action="/addMovie/{{movieid}}">
-    <a class="btn btn-default">Add to Saved Movies</a>
+  <form action = "/addMovie/{{movieid}}" method="POST">
+    <input type="submit" name = "action" value = "Save to movies">
   </form>
   <img class="img-thumbnail" src="http://image.tmdb.org/t/p/w500{{image_url}}" /><br>
   <h3>{{ title }} ( {{ year }} ) </h3>

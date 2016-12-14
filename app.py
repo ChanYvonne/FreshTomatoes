@@ -105,11 +105,12 @@ def logout():
     session.pop('username')
     return redirect(url_for('root'))
 
-@app.route("/addMovie/<movieid>")
+@app.route("/addMovie/<movieid>", methods = ["POST"])
 def addMovie( movieid ):
     if ( not loggedIn() ):
         return redirect( url_for( 'login' ))
-    addMovie( movieid, session['username'] )
+    print ("Hi")
+    storage.addMovie( movieid, session['username'] )
     return redirect( url_for( 'home' ) )
 
 def loggedIn():
