@@ -51,7 +51,7 @@ def get_movie_details(id): #takes id and retrieves info on the specific movie
     j = json.loads(urllib2.urlopen(url).read())
     return [j['title'], j['release_date'][:4], j['overview'], j['tagline'], j['poster_path']]
 
-def getLink(id): #Fetches NYT review data
+def get_link(id): #Fetches NYT review data
     query = str(get_movie_details(id)[0]).replace(" ", "%20")
     url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=%s&api-key=%s" %(query, nyt_key)
     j = json.loads(urllib2.urlopen(url).read())
@@ -61,10 +61,12 @@ def getLink(id): #Fetches NYT review data
         j = json.loads(urllib2.urlopen(url).read())['results'][0]['link']
         return [j['url'], j['suggested_link_text']]
 
-def movieExists(id): #checks if movie exists in database
-    exists = True
+def movie_exists(id): #checks if movie exists in database
     url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
-    j = json.loads(urllib2.urlopen(url).read())
-    if 'status_message' in j and 'status_code' in j:
-        exists = False
-    return exists
+    try:
+        j = json.loads(urllib2.urlopen(url).read())
+        if 'status_message' in j and 'status_code' in j:
+            return False
+    except:
+        return False
+    return True

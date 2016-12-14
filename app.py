@@ -68,10 +68,10 @@ def search():
 def movie(movieid):
     if (not loggedIn()):
         return redirect(url_for('login'))
-    if (not interactAPI.movieExists(int(movieid))):
+    if (not interactAPI.movie_exists(int(movieid))):
         return "Sorry this movie does not exist"
     results = interactAPI.get_movie_details(int(movieid))
-    link = interactAPI.getLink(int(movieid))
+    link = interactAPI.get_link(int(movieid))
     return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link[1], user = session['username'], movieid = movieid)
 
 
@@ -102,8 +102,8 @@ def list():
 def randomMovie():
     if (not loggedIn()):
         return redirect(url_for('login'))
-    movieid = random.randint(100,99998)
-    while not interactAPI.movieExists(int(movieid)):
+    print "movieid: " + str(movieid)
+    while not interactAPI.movie_exists(int(movieid)):
         movieid = random.randint(100,99998)
     return redirect(url_for('movie', movieid = movieid))
 
@@ -122,7 +122,6 @@ def logout():
 def addMovie( movieid ):
     if ( not loggedIn() ):
         return redirect( url_for( 'login' ))
-    print ("Hi")
     storage.addMovie( movieid, session['username'] )
     return redirect( url_for( 'home' ) )
 
