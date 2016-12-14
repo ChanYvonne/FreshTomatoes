@@ -19,12 +19,11 @@
         <ul class="navbar-nav navbar-right nav">
           {% if user %}
           <li><a class="nav-detail" type="button" href="/logout/">Logout</a></li>
-          <li><a class="nav-detail" type="button" href="/account/">My Account</a></li>
-	  <li><a class="nav-detail" type="button" href="/list/">My List</a></li>
+          <li><a class="nav-detail" type="button" href="/account/">View Account</a></li>
           {% else %}
           <li><a class="nav-detail" type="button" href="/login/">Login</a></li>
           {% endif %}
-          <li><a class="nav-detail" type="button" href="/random/">I'm feeling bored</a></li>
+          <li><a class="nav-detail" type="button" href="/movie/">Random Movie</a></li>
         </ul>
       </div>
     </nav>

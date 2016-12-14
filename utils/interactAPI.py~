@@ -56,11 +56,3 @@ def getLink(id): #Fetches NYT review data
     url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=%s&api-key=%s" %(query, nyt_key)
     j = json.loads(urllib2.urlopen(url).read())['results'][0]['link']
     return [j['url'], j['suggested_link_text']]
-
-def movieExists(id): #checks if movie exists in database
-    exists = True
-    url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
-    j = json.loads(urllib2.urlopen(url).read())
-    if 'status_message' in j and 'status_code' in j:
-        existes = False
-    return exists

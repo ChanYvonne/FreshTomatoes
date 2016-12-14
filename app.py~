@@ -1,7 +1,5 @@
 from flask import Flask, session, request, url_for, redirect, render_template
 from utils import authen, interactAPI, storage
-import random
-
 app = Flask(__name__)
 app.secret_key = "SOME_KEY"
 
@@ -91,20 +89,10 @@ def act():
 @app.route("/list/")
 def list():
     result = []
-    for r in storage.getMovies(session ['username']):
+    for r in getMovies (session ['username']):
         result += r
         print result
     return render_template('list.html', result = result, user = session['username'])
-
-@app.route("/random/")
-def randomMovie():
-    if (not loggedIn()):
-        return redirect(url_for('login'))
-    movieid = random.randint(100,99998)
-    print movieid
-    while not interactAPI.movieExists(int(movieid)):
-        movieid = random.randint(100,99998)
-    return redirect(url_for('movie', movieid = movieid))
 
 @app.route("/account/")
 def account():

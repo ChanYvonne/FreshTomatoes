@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% block title %}List{% endblock %}
+{% block content %}
+<div class="container-fluid bkg">
+  <center>
+    <h1> Welcome to your List of Saved Movies! </h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul style="list-style: none">
+	  {% for movie in result %}
+          <li> {{ movie }} </li>
+	  {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </center>
+</div>
+{% endblock %}
