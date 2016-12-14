@@ -45,12 +45,16 @@ kevinZ -- 2016-12-8 5:23
 nalaS -- 2016-12-8 8:06
       Worked on actor search for a couple of hours, and it literally should be working, but it isn't...
 jonathanB -- 2016-12-10 1:11
-      Got the NYT api to work, added a link to the review on movie page
+	  Got the NYT api to work, added a link to the review on movie page
 jonathanB -- 2016-12-10 6:27
-      Finished the list backend and reconfigured the database structure, polished up code here and there
+	  Finished the list backend and reconfigured the database structure, polished up code here and there
 kevinZ -- 2016-12-12 10:46
        Added some styling to account.html.
        Added background-color to .container-fluid class, so the color should fill up the page now. Can't confirm b/c my computer has it filled in anyways.
 jonathanB -- 2016-12-13 9:58
-      Linked up button to actually add movies to database
-      Squashed some bugs
+	  Linked up button to actually add movies to database
+	  Squashed some bugs
+yvonneC -- 2016-12-14 7:50
+	Fixed up list.html and added savedMovie List to Navbar
+	Got random movie working -- but doesn't work due to timeouts sometimes (same error that caused actor search to not work)
+	Encounted major bug with nyt api but fixed it (movies with numbers in the name were not working before but now it does!)
