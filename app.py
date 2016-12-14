@@ -102,7 +102,7 @@ def list():
 def randomMovie():
     if (not loggedIn()):
         return redirect(url_for('login'))
-    while not interactAPI.movieExists(int(movieid)):
+    while not interactAPI.movie_exists(int(movieid)):
         movieid = random.randint(100,99998)
     return redirect(url_for('movie', movieid = movieid))
 
