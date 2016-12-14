@@ -16,7 +16,7 @@ def addMovie(id, user): #adds movie to database
     database = sqlite3.connect('data/database.db')
     c = database.cursor()
     if (not movieExists(id, user)):
-        c.execute("INSERT INTO " + user + " VALUES (" + str(id) + ")")
+        c.execute("INSERT INTO " + user + " VALUES (" + str(id) + "NULL, NULL)")
         database.commit()
 
 def getMovies(user): #returns all movies for a specific user
@@ -25,4 +25,8 @@ def getMovies(user): #returns all movies for a specific user
     c.execute('SELECT * FROM ' + user)
     return c.fetchall()
 
-def removeMovie(id, user): #removes movie from saved Movie list and database
+def getFavs(user):
+    database = sqlite3.connect('data/database.db')
+    c = database.cursor()
+    c.execute("SELECT genre, movie FROM " + user)
+    return c.fetchall()

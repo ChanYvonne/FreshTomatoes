@@ -111,7 +111,9 @@ def randomMovie():
 def account():
     if( not loggedIn() ):
         return redirect( url_for('login') )
-    return render_template('account.html', user = session['username'])
+    genre = storage.getFavs(session['username'])[0][0]
+    movie = storage.getFavs(session['username'])[0][1]
+    return render_template('account.html', user = session['username'], genre = genre, movie = movie)
 
 @app.route("/logout/")
 def logout():

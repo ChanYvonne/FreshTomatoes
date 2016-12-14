@@ -32,7 +32,7 @@ def register( requestForm, userNames, passWords ):
     elif requestForm['confirm'] != requestForm['password']:
         return "Passwords Do Not Match"
     else:
-        addToDB( requestForm['user'], hashWord(requestForm['password']))
+        addToDB( requestForm['user'], hashWord(requestForm['password']), requestForm['genre'], requestForm['movie'])
         return True
 
 def hashWord( strIn ):
@@ -52,12 +52,14 @@ def dbHandler( ):
     db.close()
     return { 'usernames' : userNames, 'passwords' : passWords }
 
-def addToDB( userName, passWord ):
+def addToDB( userName, passWord, genre, movie ):
     db = sqlite3.connect("./data/database.db")
     cursor = db.cursor()
     cmd = "INSERT INTO users VALUES ( '%s', '%s' )"%(userName, passWord)
     cursor.execute(cmd)
-    cmd = "CREATE TABLE '%s'(movieID TEXT)" %(userName)
+    cmd = "CREATE TABLE '%s'(movieID TEXT, genre TEXT, movie TEXT)" %(userName)
+    cursor.execute(cmd)
+    cmd = "INSERT INTO '%s' VALUES ('%s', '%s', '%s')" %(userName, 'NULL', genre, movie)
     cursor.execute(cmd)
     db.commit()
     db.close()
