@@ -24,3 +24,5 @@ def getMovies(user): #returns all movies for a specific user
     c = database.cursor()
     c.execute('SELECT * FROM ' + user)
     return c.fetchall()
+
+def removeMovie(id, user): #removes movie from saved Movie list and database

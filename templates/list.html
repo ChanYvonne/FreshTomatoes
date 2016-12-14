@@ -4,15 +4,22 @@
 <div class="container-fluid bkg">
   <center>
     <h1> Welcome to your List of Saved Movies! </h1>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <ul style="list-style: none">
-	  {% for movie in result %}
-          <li> {{ movie }} </li>
-	  {% endfor %}
-        </ul>
-      </div>
-    </div>
+    <table class="container-fluid">
+      {% for row in results|batch(6) %}
+      <tr class="container-fluid" style="max-height:100px;">
+        {% for column in row %}
+	    <td class="td-elem">
+          <ul>
+            <a href={{ url_for('movie', movieid = column[2]) }}>
+            <li><img class="img-thumbnail img-icon" src="http://image.tmdb.org/t/p/w500{{ column[3] }}"/></li>
+	        <li><h3>{{column[0]}} ({{column[1]}})<h3> </li>
+            </a>
+          </ul>
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
   </center>
 </div>
 {% endblock %}
