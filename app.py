@@ -102,10 +102,12 @@ def search():
 def act():
     try:
         query = request.args.get('q')
+        print "I'm about to call get_search_details_a"
         results = interactAPI.get_search_details_a(interactAPI.get_ids(query, 'a'))
+        print "I just finished calling get_search_details_a"
         return render_template('actorSearch.html', query = query, results = results, id = id, user = session['username'])
     except:
-        return render_template('actorSearch.html', user = session['username']);
+        return render_template('actorSearch.html', user = session['username'])
 
 
 #### EXTRA THINGS (e.g., random movie; my list fxnality)
