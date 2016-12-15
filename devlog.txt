@@ -58,3 +58,7 @@ yvonneC -- 2016-12-14 7:50
 	Fixed up list.html and added savedMovie List to Navbar
 	Got random movie working -- but doesn't work due to timeouts sometimes (same error that caused actor search to not work)
 	Encounted major bug with nyt api but fixed it (movies with numbers in the name were not working before but now it does!)
+kevinZ -- 2016-12-14 8:37
+       Added the Logo to the search page
+       Changed some of the background coloring to match with the logo colors
+       

@@ -1,5 +1,5 @@
 html, body{
-    background-color: #D0CFEC;
+    background-color: #BEE3DB;
     margin: 0;
     padding: 0;
 }
@@ -11,11 +11,11 @@ body{
 #loginRegis{
     text-align: center;
     font-size: 2em;
-    background-color: #D0CFEC;
+    background-color: #BEE3DB;
 }
 
 #infoBox{
-    background-color: #D0CFEC;
+    background-color: #BEE3DB;
     text-align: center;
     padding-left: 20%;
     padding-right: 20%;
@@ -36,7 +36,7 @@ body{
 
 #navigation{
     margin-bottom: 0px;
-    background-color: #292563;
+    background-color: #0D2D2C;
     color: white;
     border: 0px solid transparent;
     border-radius: 0px;
@@ -45,7 +45,7 @@ body{
 #homePage{
     border: 0px;
     border-radius: 0px;
-    background-color: #D0CFEC;
+    background-color: #BEE3DB;
     padding-left: 20%;
     padding-right: 20%;
     margin:auto;
@@ -75,11 +75,11 @@ ul{
 }
 
 .bkg{
-    background-color: #D0CFEC;
+    background-color: #BEE3DB;
 }
 
 .container-fluid.bkg{
-    background-color: #D0CFEC;
+    background-color: #BEE3DB;
 }
 
 .panel{
