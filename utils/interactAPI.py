@@ -58,7 +58,7 @@ def get_link(id): #Fetches NYT review data
     if j['num_results'] == 0:
         return ["Link not available. Unfortuantely, NYT does not have a review for this movie", "NYT Review"]
     else:
-        j = json.loads(urllib2.urlopen(url).read())['results'][0]['link']
+        j = j['results'][0]['link']
         return [j['url'], j['suggested_link_text']]
 
 def movie_exists(id): #checks if movie exists in database

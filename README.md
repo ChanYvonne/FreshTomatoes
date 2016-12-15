@@ -8,3 +8,8 @@ A site that is essentially the google of movies! Users can:
 If users are feeling adventurous, they can also click the "I'm feeling bored" button to discover a random movie to watch that may or may not be intereting.
 
 Enjoy and feel free to bingewatch some movies!
+
+
+#BUGS you may encounter
+* When displaying a movie page (you are most likely to encounter this error when clicking the "I'm feeling bored" button searching for a random movie; when you use the search feature and access a movie through there it is most likely because you had a movie in mind and that movie is most likely not going to have these errors):
+ * If the title, blurb, or quote has a unicode character that can't be translated into ASCII (usually stuff in other languages), the movie page won't load
