@@ -53,7 +53,7 @@ def get_movie_details(id): #takes id and retrieves info on the specific movie
 
 def get_link(id): #Fetches NYT review data
     query = str(get_movie_details(id)[0]).replace(" ", "%20")
-    url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=%s&api-key=%s" %(query, nyt_key)
+    url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=%s&api-key=%s"%(query, nyt_key)
     j = json.loads(urllib2.urlopen(url).read())
     if j['num_results'] == 0:
         return ["Link not available. Unfortuantely, NYT does not have a review for this movie", "NYT Review"]
@@ -66,6 +66,10 @@ def movie_exists(id): #checks if movie exists in database
     try:
         j = json.loads(urllib2.urlopen(url).read())
         if 'status_message' in j and 'status_code' in j:
+            return False
+        if 'adult' in j and j['adult'] == True:
+            return False
+        if 'original_language' in j and j['original_language'] != 'en':
             return False
     except:
         return False
