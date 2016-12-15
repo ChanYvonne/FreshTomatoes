@@ -82,7 +82,7 @@ def movie(movieid):
     if (not loggedIn()):
         return redirect(url_for('login'))
     if (not interactAPI.movie_exists(int(movieid))):
-        return "Sorry this movie does not exist"
+        return render_template('movieDNE.html')
     results = interactAPI.get_movie_details(int(movieid))
     link = interactAPI.get_link(int(movieid))
     return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link[1], user = session['username'], movieid = movieid)
