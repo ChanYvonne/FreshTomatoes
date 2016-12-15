@@ -77,6 +77,4 @@ kevinZ -- 2016-12-14 11:28
 kevinZ -- 2016-12-15 12:21
        Found the source of the error for list
        Result is a list of movieIDs now, which can be used to get data
-yvonneC -- 2016-12-15 2:00
-	Worked with Kevin to fix list and made it show up properly
-	But encounted problem with adding/removing movie from list
+       
