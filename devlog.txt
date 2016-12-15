@@ -69,6 +69,8 @@ kevinZ -- 2016-12-14 8:37
        Changed some of the background coloring to match with the logo colors
 nalaS -- 2016-12-14 9:23
       Worked on debugging actor search
+nalaS -- 2016-12-14 10:24
+      Sanitized search & random movie outputs (language & adult content)
 kevinZ -- 2016-12-14 10:38
        Removed the option of actor search. For now, we should try to get list working before worrying about actor search
 kevinZ -- 2016-12-14 11:28
@@ -80,3 +82,5 @@ kevinZ -- 2016-12-15 12:21
 yvonneC -- 2016-12-15 2:00
 	Worked with Kevin to fix list and made it show up properly
 	But encounted problem with adding/removing movie from list
+nalaS -- 2016-12-15 3:00
+      Fixed errors with list (prevented duplicate additions to list, remove is working properly)
