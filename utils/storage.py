@@ -30,8 +30,8 @@ def removeMovie( id, user ):
 def getMovies(user): #returns all movies for a specific user
     database = sqlite3.connect('data/database.db')
     c = database.cursor()
-    c.execute('SELECT * FROM ' + user)
-    return c.fetchall()
+    return c.execute('SELECT movieID FROM ' + user)
+    
 
 def getFavs(user):
     database = sqlite3.connect('data/database.db')
