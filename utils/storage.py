@@ -19,6 +19,14 @@ def addMovie(id, user): #adds movie to database
         c.execute("INSERT INTO " + user + " VALUES (" + str(id) + ", NULL, NULL)")
         database.commit()
 
+def removeMovie( id, user ):
+    database = sqlite3.connect('data/database.db')
+    c = database.cursor()
+    if( movieExists( id, user ) ):
+        c.execute("DELETE * FROM %s WHERE movieID == %s;"%(user, str(id) ))
+        database.commit()
+
+        
 def getMovies(user): #returns all movies for a specific user
     database = sqlite3.connect('data/database.db')
     c = database.cursor()

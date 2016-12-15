@@ -136,6 +136,13 @@ def addMovie( movieid ):
     storage.addMovie( movieid, session['username'] )
     return redirect( url_for( 'home' ) )
 
+@app.route("/removeMovie/<movieid>")
+def removeMovie(movieid):
+    if( not loggedIn() ):
+        return redirect( url_for( 'login' ))
+    storage.removeMovie( movieid, session['username'])
+    return redirect( url_for( 'list' ) )
+
 def loggedIn():
     return ('username' in session)
 
