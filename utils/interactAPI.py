@@ -35,15 +35,19 @@ def get_search_details_m(ids): #takes movie search ids and returns the correspon
 
 
 def get_search_details_a(ids): #takes actor ids and returns the movies he/she is in or affiliated with
+    print "I'm in get_search_details_a"
+    ids = []
     for id in ids:
         url="https://api.themoviedb.org/3/person/%d/movie_credits?api_key=%s&language=en-US"%(id, tmdb_key)
         j = json.loads(urllib2.urlopen(url).read())
         movie_ids = []
         for res in j['cast']:
             movie_ids += [res['id']]
-        if len(movie_ids) > 3:
-            movie_ids = movie_ids[:3]
-    return get_search_details_m(movie_ids)
+            if len(movie_ids) > 3:
+                movie_ids = movie_ids[:3]
+        ids += movie_ids
+    print ids
+    return get_search_details_m(ids)
 
 
 def get_movie_details(id): #takes id and retrieves info on the specific movie
