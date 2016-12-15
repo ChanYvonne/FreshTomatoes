@@ -16,7 +16,7 @@ def addMovie(id, user): #adds movie to database
     database = sqlite3.connect('data/database.db')
     c = database.cursor()
     if (not movieExists(id, user)):
-        c.execute("INSERT INTO " + user + " VALUES (" + str(id) + ", NULL, NULL)")
+        c.execute("INSERT INTO " + user + " VALUES (" + str(id) + "NULL, NULL)")
         database.commit()
 
 def getMovies(user): #returns all movies for a specific user
