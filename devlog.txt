@@ -71,3 +71,7 @@ nalaS -- 2016-12-14 9:23
       Worked on debugging actor search
 kevinZ -- 2016-12-14 10:38
        Removed the option of actor search. For now, we should try to get list working before worrying about actor search
+kevinZ -- 2016-12-14 11:28
+       Added an option in list to remove the movie.
+       Fixed search engine
+       

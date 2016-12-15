@@ -94,7 +94,7 @@ def search():
     try:
         query = request.args.get('q')
         #results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
-        restuls = interactAPI.get_search_details_m(interactAPI.get_ids(query))
+        results = interactAPI.get_search_details_m(interactAPI.get_ids(query))
         return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
     except:
         return " someone done goofed "
