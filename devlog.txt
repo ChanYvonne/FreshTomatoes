@@ -44,6 +44,8 @@ kevinZ -- 2016-12-8 5:23
        Fixed the css for the search bar. Nala can now do her magic ( I added a section in the code for her )
 nalaS -- 2016-12-8 8:06
       Worked on actor search for a couple of hours, and it literally should be working, but it isn't...
+nalaS -- 2016-12-9 12:38
+      Privated API keys, tried to work on actor search (somewhat unsuccessfully)
 jonathanB -- 2016-12-10 1:11
 	  Got the NYT api to work, added a link to the review on movie page
 jonathanB -- 2016-12-10 6:27
@@ -54,6 +56,10 @@ kevinZ -- 2016-12-12 10:46
 jonathanB -- 2016-12-13 9:58
 	  Linked up button to actually add movies to database
 	  Squashed some bugs
+nalaS -- 2016-12-14 12:20
+      Worked on debugging random movie generator
+nalaS -- 2016-12-14 7:38
+      Worked some more on debugging random movie generator. Identified two errors with python API interpretation, resolved one, listed the other in README as a bug.
 yvonneC -- 2016-12-14 7:50
 	Fixed up list.html and added savedMovie List to Navbar
 	Got random movie working -- but doesn't work due to timeouts sometimes (same error that caused actor search to not work)
@@ -61,4 +67,5 @@ yvonneC -- 2016-12-14 7:50
 kevinZ -- 2016-12-14 8:37
        Added the Logo to the search page
        Changed some of the background coloring to match with the logo colors
-       
+nalaS -- 2016-12-14 9:23
+      Worked on debugging actor search
