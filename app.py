@@ -125,9 +125,11 @@ def randomMovie():
 def list():
     result = []
     for r in storage.getMovies(session ['username']):
-        if ( r != (u'NULL',) and r[0] != 0):
+        if ( r != (u'NULL',) and r[0] != 0 and r[0] != 'NULL'):
             result.append(int(r[0]))
-    if (len(result) < 1):
+    result = result[1:]
+    #print result [1:]
+    if (len(result) <= 1):
         return render_template('noList.html', user = session['username'])
     else:
         movieinfo = interactAPI.get_search_details_m(result)
@@ -142,9 +144,10 @@ def addMovie( movieid ):
         #return redirect( url_for( 'list' ), message = "This movie is already in your list." )
         result = []
         for r in storage.getMovies(session ['username']):
-            if ( r != (u'NULL',) and r[0] != 0):
+            if ( r != (u'NULL',) and r[0] != 0 and r[0] != 'NULL'):
                 result.append(int(r[0]))
-        if (len(result) < 1):
+        result = result[1:]
+        if (len(result) <= 1):
             return render_template('noList.html', user = session['username'])
         else:
             movieinfo = interactAPI.get_search_details_m(result)
@@ -157,7 +160,8 @@ def addMovie( movieid ):
 def removeMovie(movieid):
     if( not loggedIn() ):
         return redirect( url_for( 'login' ))
-    storage.removeMovie( movieid, session['username'])
+    if (storage.movieExists(movieid, session['username'])):
+        storage.removeMovie( movieid, session['username'])
     return redirect( url_for( 'list' ) )
 
 def loggedIn():

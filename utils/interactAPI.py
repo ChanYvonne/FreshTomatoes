@@ -29,14 +29,15 @@ def get_search_details_m(ids): #takes movie search ids and returns the correspon
     info = []
     for id in ids:
         url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
+        print id
         j = json.loads(urllib2.urlopen(url).read())
         if j['adult'] == False and j['original_language'] == 'en':
-            if j['poster_path'] == None:
-                img = "../static/NotFound.png"
-            else:
-                img = "http://image.tmdb.org/t/p/w500" + j['poster_path']
-            movie = [j['title'], j['release_date'][0:4], id, img]
-            info += [movie]
+           if j['poster_path'] == None:
+               img = "../static/NotFound.png"
+           else:
+               img = "http://image.tmdb.org/t/p/w500" + j['poster_path']
+               movie = [j['title'], j['release_date'][0:4], id, img]
+               info += [movie]
     return info
 
 
