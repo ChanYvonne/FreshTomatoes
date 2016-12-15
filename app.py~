@@ -94,7 +94,7 @@ def search():
     try:
         query = request.args.get('q')
         #results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
-        results = interactAPI.get_search_details_m(interactAPI.get_ids(query))
+        restuls = interactAPI.get_search_details_m(interactAPI.get_ids(query))
         return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
     except:
         return " someone done goofed "
@@ -126,9 +126,8 @@ def list():
     result = []
     for r in storage.getMovies(session ['username']):
         result += r
-    return render_template('list.html', result = result, user = session['username'])
-    #movieinfo = interactAPI.get_search_details_m(result)
-    #return render_template('list.html', results = movieinfo, user = session['username'])
+    movieinfo = interactAPI.get_search_details_m(result)
+    return render_template('list.html', results = movieinfo, user = session['username'])
 
 @app.route("/addMovie/<movieid>", methods = ["POST"])
 def addMovie( movieid ):
@@ -136,13 +135,6 @@ def addMovie( movieid ):
         return redirect( url_for( 'login' ))
     storage.addMovie( movieid, session['username'] )
     return redirect( url_for( 'home' ) )
-
-@app.route("/removeMovie/<movieid>")
-def removeMovie(movieid):
-    if( not loggedIn() ):
-        return redirect( url_for( 'login' ))
-    storage.removeMovie( movieid, session['username'])
-    return redirect( url_for( 'list' ) )
 
 def loggedIn():
     return ('username' in session)
