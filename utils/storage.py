@@ -7,7 +7,7 @@ def movieExists(id, user): #checks if a movie exists in the database
     c = database.cursor()
     b = c.execute('SELECT movieID FROM ' + user)
     for r in b:
-        if r == id:
+        if r[0] == id:
             return True
     return False
 
