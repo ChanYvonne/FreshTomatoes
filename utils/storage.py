@@ -5,10 +5,9 @@ database = sqlite3.connect('data/database.db')
 def movieExists(id, user): #checks if a movie exists in the database
     database = sqlite3.connect('data/database.db')
     c = database.cursor()
-    c.execute('SELECT * FROM ' + user)
-    b = c.fetchall()
+    b = c.execute('SELECT movieID FROM ' + user)
     for r in b:
-        if r[0] == str(id):
+        if r == id:
             return True
     return False
 
@@ -16,14 +15,14 @@ def addMovie(id, user): #adds movie to database
     database = sqlite3.connect('data/database.db')
     c = database.cursor()
     if (not movieExists(id, user)):
-        c.execute("INSERT INTO " + user + " VALUES (" + str(id) + ", NULL, NULL)")
+        c.execute("INSERT INTO " + user + " VALUES (" + id + ", NULL, NULL)")
         database.commit()
 
 def removeMovie( id, user ):
     database = sqlite3.connect('data/database.db')
     c = database.cursor()
     if( movieExists( id, user ) ):
-        c.execute("DELETE * FROM %s WHERE movieID == %s;"%(user, str(id) ))
+        c.execute("DELETE * FROM %s WHERE movieID == %d;"%(user, id ))
         database.commit()
 
         

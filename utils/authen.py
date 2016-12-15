@@ -59,7 +59,7 @@ def addToDB( userName, passWord, genre, movie ):
     cursor.execute(cmd)
     cmd = "CREATE TABLE '%s'(movieID TEXT, genre TEXT, movie TEXT)" %(userName)
     cursor.execute(cmd)
-    cmd = "INSERT INTO '%s' VALUES ('%s', '%s', '%s')" %(userName, 'NULL', genre, movie)
+    cmd = "INSERT INTO '%s' VALUES ('%d', '%s', '%s')" %(userName, 0, genre, movie)
     cursor.execute(cmd)
     db.commit()
     db.close()
