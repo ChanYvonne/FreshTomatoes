@@ -126,7 +126,7 @@ def list():
     result = []
     for r in storage.getMovies(session ['username']):
         result += r
-    return render_template('list.html', result = result, user = session['username'])
+    return render_template('list.html', results = result, user = session['username'])
     #movieinfo = interactAPI.get_search_details_m(result)
     #return render_template('list.html', results = movieinfo, user = session['username'])
 
