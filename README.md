@@ -1,23 +1,24 @@
 # FreshTomatoes
 
-Installations/programs needed (you probably already have this):
-sqlite3
-bootstrap
-jquery
+### Installations/programs needed (you probably already have this):
+* sqlite3
+* bootstrap
+* jquery
 
-A site that is essentially the google of movies! Users can:
-  -search for any movie they like or have heard of to obtain information about it
-  -search for specifc actors they follow and research what movies that actor is in
-  -have profiles and accounts where they can save their movies, document their favorite genre and movie of all time, and edit the information as time goes on
-
-If users are feeling adventurous, they can also click the "I'm feeling bored" button to discover a random movie to watch that may or may not be intereting.
-
-Enjoy and feel free to bingewatch some movies!
-
+## Features
+* Register and login
+* Click on "I'm feeling bored" for a random movie suggestion
+* Search for a keyword in a movie title
+* Click on a movie to view information about it
+ * Read a review of the movie in The New York Times (for many, but not all)
+ * Add this movie to "your list"
+* Click on "My List" to view your list and remove movies from it
 
 ## Bugs, Limitations, etc
 * We have limited the movie language to English because some languages (e.g., Swedish, Arabic, Russian) were throwing weird errors with Unicode characters and Python's inability to convert them to ASCII -- we didn't want these errors impeding the user experience so we just took away foreign films altogether.
 * Some Unicode characters (like the joined ellipses ...) still throw errors, so watch out for those.
+* Not all of the styling envisioned in the site map (e.g., image, TMDB API data, NYT API data laid out side-by-side) was implemented.
+* There are some random HTML errors that don't persist (i.e., adding a certain movie will throw an error the first time you try it and then not throw it the second time) and we're not quite sure why.
 
 ## For The Future
 * We wanted to implement an actor search but doing so became more involved than we thought it would be, so we had to "discontinue" the feature (it is commented out).

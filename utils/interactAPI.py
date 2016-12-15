@@ -31,7 +31,11 @@ def get_search_details_m(ids): #takes movie search ids and returns the correspon
         url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
         j = json.loads(urllib2.urlopen(url).read())
         if j['adult'] == False and j['original_language'] == 'en':
-            movie = [j['title'], j['release_date'][0:4], id, j['poster_path']]
+            if j['poster_path'] == None:
+                img = "../static/NotFound.png"
+            else:
+                img = "http://image.tmdb.org/t/p/w500" + j['poster_path']
+            movie = [j['title'], j['release_date'][0:4], id, img]
             info += [movie]
     return info
 
@@ -55,7 +59,11 @@ def get_search_details_m(ids): #takes movie search ids and returns the correspon
 def get_movie_details(id): #takes id and retrieves info on the specific movie
     url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
     j = json.loads(urllib2.urlopen(url).read())
-    return [j['title'], j['release_date'][:4], j['overview'], j['tagline'], j['poster_path']]
+    if j['poster_path'] == None:
+        img = "../static/NotFound.png"
+    else:
+        img = "http://image.tmdb.org/t/p/w500" + j['poster_path']
+    return [j['title'], j['release_date'][:4], j['overview'], j['tagline'], img]
 
 def get_link(id): #Fetches NYT review data
     query = str(get_movie_details(id)[0]).replace(" ", "%20")
