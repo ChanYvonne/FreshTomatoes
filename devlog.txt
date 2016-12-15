@@ -84,3 +84,5 @@ yvonneC -- 2016-12-15 2:00
 	But encounted problem with adding/removing movie from list
 nalaS -- 2016-12-15 3:00
       Fixed errors with list (prevented duplicate additions to list, remove is working properly)
+nalaS -- 2016-12-15 3:40
+      Fixed some more errors, added a couple more features (I know this is super vague but I have a math test tomorrow and want to sleep)
