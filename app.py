@@ -127,7 +127,7 @@ def list():
     for r in storage.getMovies(session ['username']):
         if ( r != (u'NULL',) and r[0] != 0):
             result.append(int(r[0]))
-    if (len(result) <= 1):
+    if (len(result) < 1):
         return render_template('noList.html', user = session['username'])
     else:
         movieinfo = interactAPI.get_search_details_m(result)
@@ -144,7 +144,7 @@ def addMovie( movieid ):
         for r in storage.getMovies(session ['username']):
             if ( r != (u'NULL',) and r[0] != 0):
                 result.append(int(r[0]))
-        if (len(result) <= 1):
+        if (len(result) < 1):
             return render_template('noList.html', user = session['username'])
         else:
             movieinfo = interactAPI.get_search_details_m(result)
