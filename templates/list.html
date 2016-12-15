@@ -6,19 +6,21 @@
     <h1> Welcome to your List of Saved Movies! </h1>
     {{ message }}
     <table class="container-fluid">
+      {% for row in results|batch(6) %}
       <tr>
-      {% for column in results %}
-	  <td class="td-elem">
-        <ul>
-          <a href="{{ url_for('movie', movieid = column[2]) }}">
-            <li><img class="img-thumbnail img-icon" src="http://image.tmdb.org/t/p/w500{{ column[3] }}"/></li>
-	        <li><h3>{{column[0]}} ({{column[1]}})<h3> </li>
-          </a>
-          <li><a class="btn btn-default" href="/removeMovie/{{ column[2] }}">Remove</a></li>
-        </ul>          
-      </td>
-      {% endfor %}
+	{% for column in row %}
+	<td class="td-elem">
+          <ul>
+            <a href="{{ url_for('movie', movieid = column[2]) }}">
+              <li><img class="img-thumbnail img-icon" src="{{ column[3] }}"/></li>
+	      <li><h3>{{column[0]}} ({{column[1]}})<h3> </li>
+            </a>
+            <li><a class="btn btn-default" href="/removeMovie/{{ column[2] }}">Remove</a></li>
+          </ul>          
+	</td>
+	{% endfor %}
       </tr>
+      {% endfor %}
     </table>
   </center>
 </div>
