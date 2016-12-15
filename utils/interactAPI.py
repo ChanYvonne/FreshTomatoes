@@ -30,8 +30,9 @@ def get_search_details_m(ids): #takes movie search ids and returns the correspon
     for id in ids:
         url="http://api.themoviedb.org/3/movie/%d?api_key=%s&language=en-US"%(id, tmdb_key)
         j = json.loads(urllib2.urlopen(url).read())
-        movie = [j['title'], j['release_date'][0:4], id, j['poster_path']]
-        info += [movie]
+        if j['adult'] == False and j['original_language'] == 'en':
+            movie = [j['title'], j['release_date'][0:4], id, j['poster_path']]
+            info += [movie]
     return info
 
 
