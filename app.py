@@ -123,14 +123,14 @@ def randomMovie():
 
 @app.route("/list/")
 def list():
-    result = [ ]
+    result = []
     for r in storage.getMovies(session ['username']):
-        if int(r[0]) != 0:
-            result.append( int(r[0]) )
-    print result
-    return render_template('list.html', results = result, user = session['username'])
-    #movieinfo = interactAPI.get_search_details_m(result)
-    #return render_template('list.html', results = movieinfo, user = session['username'])
+        if ( r != (u'NULL',) ):
+            print r[0]
+            result.append(int(r[0]))
+    #return render_template('list.html', results = result, user = session['username'])
+    movieinfo = interactAPI.get_search_details_m(result)
+    return render_template('list.html', results = movieinfo, user = session['username'])
 
 @app.route("/addMovie/<movieid>", methods = ["POST"])
 def addMovie( movieid ):
