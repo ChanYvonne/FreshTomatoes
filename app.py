@@ -5,6 +5,8 @@ import random
 app = Flask(__name__)
 app.secret_key = "SOME_KEY"
 
+
+#### LOGIN-Y THINGS
 @app.route("/")
 def root():
     if loggedIn():
@@ -51,62 +53,6 @@ def authenicate():
     else:
         return redirect(url_for('root'))
 
-@app.route("/search/", methods = ["GET"])
-def search():
-    if('m' in request.args):
-        query = request.args.get('m')
-        results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
-        return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
-    elif('a' in request.args):
-        query = request.args.get('a')
-        results = interactAPI.get_search_details_a(interactAPI.get_ids(query, 'a'))
-        return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
-    else:
-        return " someone done goofed "
-
-@app.route("/movie/<movieid>")
-def movie(movieid):
-    if (not loggedIn()):
-        return redirect(url_for('login'))
-    if (not interactAPI.movie_exists(int(movieid))):
-        return "Sorry this movie does not exist"
-    results = interactAPI.get_movie_details(int(movieid))
-    link = interactAPI.get_link(int(movieid))
-    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link[1], user = session['username'], movieid = movieid)
-
-
-@app.route("/home/")
-def home(**keyword_parameters):
-    if (not loggedIn() ):
-        return redirect(url_for('login'))
-    elif('user' in request.args):
-        return render_template('home.html', user = request.args.get('user'))
-    else:
-        return render_template('home.html', user = session['username'])
-
-@app.route("/actorSearch/")
-def act():
-    if (not loggedIn()):
-        return redirect(url_for('login'))
-    return render_template('actorSearch.html', user = session['username']);
-
-@app.route("/list/")
-def list():
-    result = []
-    for r in storage.getMovies(session ['username']):
-        result += r
-    movieinfo = interactAPI.get_search_details_m(result)
-    return render_template('list.html', results = movieinfo, user = session['username'])
-
-@app.route("/random/")
-def randomMovie():
-    if (not loggedIn()):
-        return redirect(url_for('login'))
-    movieid = random.randint(100,99998)
-    while not interactAPI.movie_exists(int(movieid)):
-        movieid = random.randint(100,99998)
-    return redirect(url_for('movie', movieid = movieid))
-
 @app.route("/account/")
 def account():
     if( not loggedIn() ):
@@ -119,6 +65,68 @@ def account():
 def logout():
     session.pop('username')
     return redirect(url_for('root'))
+
+
+#### DISPLAY-Y THINGS
+@app.route("/home/")
+def home(**keyword_parameters):
+    if (not loggedIn() ):
+        return redirect(url_for('login'))
+    elif('user' in request.args):
+        return render_template('home.html', user = request.args.get('user'))
+    else:
+        return render_template('home.html', user = session['username'])
+
+@app.route("/movie/<movieid>")
+def movie(movieid):
+    if (not loggedIn()):
+        return redirect(url_for('login'))
+    if (not interactAPI.movie_exists(int(movieid))):
+        return "Sorry this movie does not exist"
+    results = interactAPI.get_movie_details(int(movieid))
+    link = interactAPI.get_link(int(movieid))
+    return render_template('movie.html', title = results[0], year = results[1], blurb = results[2], quote = results[3], image_url = results[4], link = link [0], linkDescription = link[1], user = session['username'], movieid = movieid)
+
+
+#### SEARCH-Y THINGS
+@app.route("/search/", methods = ["GET"])
+def search():
+    try:
+        query = request.args.get('q')
+        results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
+        return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
+    except:
+        return " someone done goofed "
+
+@app.route("/actorSearch/", methods = ["GET"])
+def act():
+    try:
+        query = request.args.get('q')
+        print "I'm about to call get_search_details_a"
+        results = interactAPI.get_search_details_a(interactAPI.get_ids(query, 'a'))
+        print "I just finished calling get_search_details_a"
+        return render_template('actorSearch.html', query = query, results = results, id = id, user = session['username'])
+    except:
+        return render_template('actorSearch.html', user = session['username'])
+
+
+#### EXTRA THINGS (e.g., random movie; my list fxnality)
+@app.route("/random/")
+def randomMovie():
+    if (not loggedIn()):
+        return redirect(url_for('login'))
+    movieid = random.randint(100,99998)
+    while not interactAPI.movie_exists(int(movieid)):
+        movieid = random.randint(100,99998)
+    return redirect(url_for('movie', movieid = movieid))
+
+@app.route("/list/")
+def list():
+    result = []
+    for r in storage.getMovies(session ['username']):
+        result += r
+    movieinfo = interactAPI.get_search_details_m(result)
+    return render_template('list.html', results = movieinfo, user = session['username'])
 
 @app.route("/addMovie/<movieid>", methods = ["POST"])
 def addMovie( movieid ):
