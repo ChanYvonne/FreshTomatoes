@@ -1,0 +1,7 @@
+The following changes were made to our website that differs from the design doc:
+    -results.html became search_results.html
+    -self.py became profile.py
+    -search.py and movie.py was removed and replaced by storage.py, which adds/changes info to the database for the saved movies list
+    -added picture logo
+    -movie pages now include only a summary, release year, quote(if applicable), and link to a review on NYT
+    
