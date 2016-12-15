@@ -93,21 +93,22 @@ def movie(movieid):
 def search():
     try:
         query = request.args.get('q')
-        results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
+        #results = interactAPI.get_search_details_m(interactAPI.get_ids(query, 'm'))
+        restuls = interactAPI.get_search_details_m(interactAPI.get_ids(query))
         return render_template('search_results.html', query = query, results = results, id = id, user = session['username'])
     except:
         return " someone done goofed "
 
-@app.route("/actorSearch/", methods = ["GET"])
-def act():
-    try:
-        query = request.args.get('q')
-        print "I'm about to call get_search_details_a"
-        results = interactAPI.get_search_details_a(interactAPI.get_ids(query, 'a'))
-        print "I just finished calling get_search_details_a"
-        return render_template('actorSearch.html', query = query, results = results, id = id, user = session['username'])
-    except:
-        return render_template('actorSearch.html', user = session['username'])
+#@app.route("/actorSearch/", methods = ["GET"])
+#def act():
+#    try:
+#        query = request.args.get('q')
+#        print "I'm about to call get_search_details_a"
+#        results = interactAPI.get_search_details_a(interactAPI.get_ids(query, 'a'))
+#        print "I just finished calling get_search_details_a"
+#        return render_template('actorSearch.html', query = query, results = results, id = id, user = session['username'])
+#    except:
+#        return render_template('actorSearch.html', user = session['username'])
 
 
 #### EXTRA THINGS (e.g., random movie; my list fxnality)
