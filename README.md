@@ -5,7 +5,6 @@ sqlite3
 bootstrap
 jquery
 
-
 A site that is essentially the google of movies! Users can:
   -search for any movie they like or have heard of to obtain information about it
   -search for specifc actors they follow and research what movies that actor is in
@@ -16,6 +15,10 @@ If users are feeling adventurous, they can also click the "I'm feeling bored" bu
 Enjoy and feel free to bingewatch some movies!
 
 
-#BUGS you may encounter
-* When displaying a movie page (you are most likely to encounter this error when clicking the "I'm feeling bored" button searching for a random movie; when you use the search feature and access a movie through there it is most likely because you had a movie in mind and that movie is most likely not going to have these errors):
- * If the title, blurb, or quote has a unicode character that can't be translated into ASCII (usually stuff in other languages), the movie page won't load
+## Bugs, Limitations, etc
+* We have limited the movie language to English because some languages (e.g., Swedish, Arabic, Russian) were throwing weird errors with Unicode characters and Python's inability to convert them to ASCII -- we didn't want these errors impeding the user experience so we just took away foreign films altogether.
+* Some Unicode characters (like the joined ellipses ...) still throw errors, so watch out for those.
+
+## For The Future
+* We wanted to implement an actor search but doing so became more involved than we thought it would be, so we had to "discontinue" the feature (it is commented out).
+* Since we have rudimentary profiles and "list" pages, if we were to take this project further, we might implement a social aspect where people can make friends, view each other's lists, etc.
