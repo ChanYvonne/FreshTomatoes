@@ -129,7 +129,7 @@ def list():
             result.append(int(r[0]))
     result = result[1:]
     #print result [1:]
-    if (len(result) <= 1):
+    if (len(result) < 1):
         return render_template('noList.html', user = session['username'])
     else:
         movieinfo = interactAPI.get_search_details_m(result)
@@ -147,7 +147,7 @@ def addMovie( movieid ):
             if ( r != (u'NULL',) and r[0] != 0 and r[0] != 'NULL'):
                 result.append(int(r[0]))
         result = result[1:]
-        if (len(result) <= 1):
+        if (len(result) < 1):
             return render_template('noList.html', user = session['username'])
         else:
             movieinfo = interactAPI.get_search_details_m(result)
